@@ -11,6 +11,8 @@ a {
   text-decoration: none;
 }
 
+
+
 * {
   box-sizing: border-box;
 }
@@ -22,5 +24,7 @@ a {
   body {
     color: white;
     background: black;
+    margin: 0px;
+  
   }
 }
