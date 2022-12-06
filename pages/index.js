@@ -1,7 +1,6 @@
 import styles from '../styles/Import.module.css'
 import Navbar from '../componen/Navbar'
-import Image from 'next/image'
-import Footer from '../componen/footer'
+import Footer from '../componen/Footer'
 //import Header from '../componen/Head'
 import axios from 'axios'
 import { useEffect, useState } from 'react'

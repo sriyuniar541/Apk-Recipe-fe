@@ -3,7 +3,7 @@ import Image from 'next/image'
 import styles from '../styles/Import.module.css'
 import Form from '../componen/form'
 import Link from 'next/link'
-import Bacground from '../componen/bg'
+
 
 
 

@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Footer from '../../componen/Footer'
-import Navbar from '../../componen/navbar'
+import Navbar from '../../componen/Navbar'
 import { useRouter } from 'next/router'
 
 

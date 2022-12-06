@@ -2,7 +2,7 @@
 import axios from 'axios'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
-import Navbar from '../componen/navbar'
+import Navbar from '../componen/Navbar'
 import CardProfile from '../componen/cardProfile'
 import FotterP from '../componen/fotterP'
 
