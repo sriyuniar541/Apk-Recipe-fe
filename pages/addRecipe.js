@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import Footer from '../componen/footer'
-import Navbar from '../componen/navbar'
+import Footer from '../componen/Footer'
+import Navbar from '../componen/Navbar'
 
 
 export default function AddRecepi() {

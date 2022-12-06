@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '../componen/navbar'
+import Navbar from '../componen/Navbar'
 
 
 

@@ -1,5 +1,5 @@
 import styles from '../styles/Import.module.css'
-import Navbar from '../componen/navbar'
+import Navbar from '../componen/Navbar'
 import Image from 'next/image'
 import Footer from '../componen/footer'
 //import Header from '../componen/Head'
