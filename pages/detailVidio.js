@@ -35,11 +35,11 @@ export default function DetailVidio() {
 
                             {/* <!-- Full screen modal --> */}
 
+
                         </div>
                     </div>
                 </div>
-            </div>
-
+            </div> 
         </div>
     )
 }

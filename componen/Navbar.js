@@ -1,10 +1,19 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import styles from '../styles/Import.module.css'
+// import { useContext, useEffect } from 'react'
+// import { GlobalConten } from '../pages/contenApi/globalConten'
+
 
 export default function Navbar() {
+
+  // const {data, getUser, isLoginId} = useContext(GlobalConten)
+
+  // useEffect(()=> {
+  //     getUser();
+  // },[])
+ 
   return (
-    <div className='col-12'>
+    <div className='col-12 '>
       <div className='container py-lg-4'>
         <div className='row'>
             <div className='col-11'>
@@ -14,7 +23,7 @@ export default function Navbar() {
             </div>
             <div className='col-1 d-flex'>
                 <Link href='profile' ><Image src='/lk.png' alt='' width={40} height={40}/></Link>
-                <p className=''>users</p>
+                <p className=''>hallo </p>
             </div>  
         </div>
       </div>
