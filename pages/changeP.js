@@ -10,10 +10,6 @@ import axios from 'axios'
 
 export default function ChangeP() {
  
-
-  const id = context.params.id
-  const res =  fetch (`http://localhost:4001/recipe/${id}`)
- 
   const router = useRouter()
   const [password, setPassword] = useState('')
   const [photo, setPhoto] = useState('')
@@ -40,6 +36,7 @@ export default function ChangeP() {
     })
     .then(res => {console.log(res, 'update data success')
     alert('update data success');
+    router.push('/profile')
   })
     .catch( (err) => {
     console.log(err.message, 'update data fail')
@@ -53,13 +50,11 @@ export default function ChangeP() {
     <div>
       <Navbar />
         <><div className='container text-center' style={{ marginTop: '5%', marginBottom: '5%' }} >
-          {/* <img src={updatePhoto} alt='' style={{ borderRadius: '50%' }} /> */}
           <form onSubmit={formPost}>
             <button className='btn btn-outline-light' style={{ marginTop: '12%' }}><img src='/ed.png' alt='' /></button>
             <div className='col-3 offset-4 mt-3'>
               <input type="file" name='photo' className="form-control" id="FormControl" style={{ backgroundColor: '#E7E7E7' }}  placeholder="Change Photo"  onChange={handlePhoto} />
-              <input type='text' name='password' className="form-control mb-3" placeholder="Change Password" style={{ backgroundColor: '#E7E7E7' }}  onChange={onChangeHandler} />
-              {/* <button type='submit'>edit</button> */}  
+              <input type='text' name='password' className="form-control mb-3" placeholder="Change Password" style={{ backgroundColor: '#E7E7E7' }}  onChange={onChangeHandler} /> 
             </div>
           </form>
         </div>

@@ -16,9 +16,11 @@ useEffect(()=>{
   axios.get(apiUser)
   .then((result)=> {
     result.data && setUsers(result.data.data)
+    alert('get data success');
   })
   .catch((err)=> {
     console.log(err)
+    alert('get data success');
   })
 
 },[])

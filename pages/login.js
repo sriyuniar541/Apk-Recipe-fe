@@ -1,37 +1,41 @@
 import Image from 'next/image'
 import styles from '../styles/Import.module.css'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useRouter } from 'next/router'
+import { GlobalConten } from './contenApi/globalConten'
 
 
 
 
 export default function  Login () {
   const router = useRouter()
-
+  const {adminLogin} = useContext(GlobalConten)
+  
   const [inputData, setInputData] = useState({
     email: '',
     password: ''
   })
+
   const registerHandling = async (e) => {
     e.preventDefault()
     const {password,email} = inputData
     const data = {password,email}
+    adminLogin(data)
 
-    const res = await (await fetch('http://localhost:4001/users/login', {
-      method : 'POST',
-      body : JSON.stringify(data),
-      headers : { 'Content-Type' :'application/json' }
-    })).json()
-    if (res.success) {
-      alert(res.message);
-      setInputData({
-        email: '',
-        password: ''
-      })
-      router.push('/')
-    }
+    // const res = await (await fetch('http://localhost:4001/users/login', {
+    //   method : 'POST',
+    //   body : JSON.stringify(data),
+    //   headers : { 'Content-Type' :'application/json' }
+    // })).json()
+    // if (res.success) {
+    //   alert(res.message);
+    //   setInputData({
+    //     email: '',
+    //     password: ''
+    //   })
+    //   router.push('/')
+    // }
   }
 
 
@@ -59,9 +63,9 @@ export default function  Login () {
           </div> 
           <form onSubmit={registerHandling} className='col-lg-6 offset-lg-3 mt-2'>
               <label className="form-label" style={{ color: '#8692A6' }}>Email</label>
-              <input type='text'  className="form-control" id="FormControl" name="email" placeholder='Email address' value={inputData.email} onChange={onChangeHandler}/>
+              <input type='email'  className="form-control" id="FormControl" name="email" placeholder='Email address' value={inputData.email} onChange={onChangeHandler}/>
               <label className="form-label" style={{ color: '#8692A6' }}>password</label>
-              <input type='text' className="form-control" id="FormControl" name="password" placeholder=' Create New Password' value={inputData.password} onChange={onChangeHandler}/>
+              <input type='password ' className="form-control" id="FormControl" name="password" placeholder=' Create New Password' value={inputData.password} onChange={onChangeHandler}/>
               <div className="form-check mt-3 ">
                   <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
                   <label className="form-check-label" for="defaultCheck1">

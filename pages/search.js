@@ -9,21 +9,12 @@ import Button from '../componen/button'
  
 
 
-export default function Home() {
-
+export default function Home(query) {
+console.log(query)
   const [get, setGet] = useState([])
   const [search, setSearch] = useState('')
-  const apiRecepi = 'http://localhost:4001/recipe'
-
-  useEffect(() => {
-    axios.get(apiRecepi)
-      .then((result) => {
-        result.data && setGet(result.data.data)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-  }, [])
+  const [page, setPage] = useState(1)
+  const [limit] = useState(4)
 
 
   //search/filter
@@ -35,7 +26,7 @@ export default function Home() {
   const sortByIdAsc = filterRecipe.sort((a, b) => a.id - b.id)
   const sortByIdDesc = filterRecipe.sort((a, b) => b.id - a.id)
 
-  //pagination
+ 
   //delete
   const deleteRecipe = (e, id) => {
     //axios.delete(`http://localhost:4001/recipe/12`)
@@ -49,7 +40,48 @@ export default function Home() {
         alert('Delete data fail');
       })
   }
- 
+
+   //pagination
+  const nextPage = async () => {
+      setPage(page + 1)
+          axios.get(`http://localhost:4001/recipe?limit=${limit}&page=${page}`) 
+            .then((result) => {
+              result.data && setGet(result.data.data)
+              alert('get data success');
+            })
+            .catch((err) => {
+              console.log(err)
+              alert('get data fail');
+            })
+  }
+  //pagination
+  const prevPage = async () => {
+      setPage(page - 1)
+        axios.get(`http://localhost:4001/recipe?limit=${limit}&page=${page}`) 
+        .then((result) => {
+          result.data && setGet(result.data.data)
+          alert('get data success');
+        })
+        .catch((err) => {
+          console.log(err)
+          alert('get data fail');
+        })
+  }
+
+const getRecipe =  () => {
+  // axios.get(`http://localhost:4001/recipe?limit=${limit}&page=${page}`) 
+  //     .then((result) => {
+  //       result.data && setGet(result.data.data)
+  //     })
+  //     .catch((err) => {
+  //       console.log(err)
+  //     })
+} 
+
+
+  useEffect(() => {
+    getRecipe()
+  }, [])
 
 
 
@@ -84,7 +116,15 @@ export default function Home() {
                   </div>
                 </div>
               )
+              
           })}
+           <div className='col-12 offset-5 mt-5 text-center '>
+          <ul className="pagination">
+            <button className="page-item border-white" onClick={nextPage}>next</button>
+            <li className="page-item"><a className="page-link" >{page}</a></li>
+            <button className="page-item border-white" disabled={page < 1 } onClick={prevPage}>back</button>
+          </ul>
+        </div>
       </div>
               
    </div>

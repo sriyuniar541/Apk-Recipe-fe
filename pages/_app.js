@@ -1,13 +1,13 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import '../styles/globals.css'
-// import GlobalProvider from './contenApi/globalConten'
+import GlobalProvider from './contenApi/globalConten'
 
 
 function MyApp({ Component, pageProps }) {
   return (
-    // <GlobalProvider>
+    <GlobalProvider>
     <Component {...pageProps} />
-  // </GlobalProvider>
+   </GlobalProvider>
   )
    
 }

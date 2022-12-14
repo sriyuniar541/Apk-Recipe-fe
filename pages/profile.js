@@ -36,14 +36,14 @@ const profile = ({ data }) => {
       </div>
         <div className='container'>
           {/* menu */}
-          <ul class="nav nav-tabs">
-              <li class="nav-item">
+          <ul className="nav nav-tabs">
+              <li className="nav-item">
                   <Link href='/profile' className='px-3'>My Recipe</Link>
               </li>
-              <li class="nav-item">
+              <li className="nav-item">
                   <Link href='/savedRecipe' className='px-3'>Saved Recipe</Link>
               </li>
-              <li class="nav-item">
+              <li className="nav-item">
                   <Link href='/likedRecipe' className='px-3'>Liked Recipe</Link>
               </li>
           </ul>

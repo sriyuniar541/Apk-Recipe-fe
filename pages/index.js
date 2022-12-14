@@ -5,22 +5,23 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 
- 
-
 
 export default function Home() {
 
   const [get, setGet] = useState([])
   const [search, setSearch] = useState('')
   const apiRecepi = 'http://localhost:4001/recipe'
+  
 
   useEffect(() => {
     axios.get(apiRecepi)
       .then((result) => {
         result.data && setGet(result.data.data)
+        alert('get data success');
       })
       .catch((err) => {
         console.log(err)
+        alert('get data fail');
       })
   }, [])
 

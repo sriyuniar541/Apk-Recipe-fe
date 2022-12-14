@@ -1,17 +1,18 @@
 import Image from 'next/image'
 import Link from 'next/link'
-// import { useContext, useEffect } from 'react'
-// import { GlobalConten } from '../pages/contenApi/globalConten'
+import { useContext, useEffect } from 'react'
+import { GlobalConten } from '../pages/contenApi/globalConten'
 
 
 export default function Navbar() {
 
-  // const {data, getUser, isLoginId} = useContext(GlobalConten)
+  const {adminLogout} = useContext(GlobalConten)
 
-  // useEffect(()=> {
-  //     getUser();
-  // },[])
- 
+  const logout = () => {
+    adminLogout()
+  }
+
+
   return (
     <div className='col-12 '>
       <div className='container py-lg-4'>
@@ -24,7 +25,8 @@ export default function Navbar() {
             <div className='col-1 d-flex'>
                 <Link href='profile' ><Image src='/lk.png' alt='' width={40} height={40}/></Link>
                 <p className=''>hallo </p>
-            </div>  
+                <button onClick={logout}>logout</button> 
+            </div> 
         </div>
       </div>
     </div>
