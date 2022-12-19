@@ -25,6 +25,15 @@ useEffect(()=>{
 
 },[])
 
+ //hanya yang sudah login yg blh ke sini
+ useEffect (()=>{
+  if(!localStorage.getItem('token')){
+      router.push('/login')
+      alert('please login')
+    }
+  })
+  
+
   return (
     <div>
       <Navbar/>

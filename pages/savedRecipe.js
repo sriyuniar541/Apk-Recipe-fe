@@ -12,6 +12,7 @@ export async function getServerSideProps (context) {
     const data = response.data[0]
     console.log(data)
   
+
     if(!data) {
     return {
       notFound : true 
@@ -23,7 +24,6 @@ export async function getServerSideProps (context) {
         data,
       }
     }
-
 
 }
 

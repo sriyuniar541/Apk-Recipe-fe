@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import styles from '../styles/Import.module.css'
 import Link from 'next/link'
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { GlobalConten } from './contenApi/globalConten'
 
@@ -38,14 +38,15 @@ export default function  Login () {
     // }
   }
 
-
   const onChangeHandler = (e) => {
     const name = e.target.name
     const value = e.target.value
     setInputData({ ...inputData, [name]: value })
   }
 
-  return (
+
+
+  return ( 
     <div className=''>
       <div className='row'>
         <div className='col-6 text-center'>

@@ -1,19 +1,19 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Footer from '../componen/Footer'
 import Navbar from '../componen/Navbar'
+import { useRouter } from 'next/router'
 
 
 export default function AddRecepi() {
-
+  const router = useRouter()
   const [photo,setPhoto] = useState(null)
   const [post,setPost] = useState({
-      "id": 21,
       "title": "",
       "ingredients": "",
       "vidio": "",
       "description": 'description',
-      "comment_id": 1
+      "comment_id": 1 
 
   })
 
@@ -27,7 +27,6 @@ const handlePost =  (e) => {
   e.preventDefault()
   
   const formData = new FormData()
-  formData.append ('id',post.id)
   formData.append ('title',post.title)
   formData.append ('ingredients',post.ingredients)
   formData.append ('vidio',post.vidio)
@@ -54,6 +53,14 @@ const onChangeHandler = (e) => {
   const value = e.target.value
   setPost({ ...post, [name]: value })
 }
+
+ //hanya yang sudah login yg blh ke sini
+useEffect (()=>{
+  if(!localStorage.getItem('token')){
+      router.push('/login')
+      alert('please login')
+  }
+})
 
 return ( 
   <div> 

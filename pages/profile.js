@@ -25,6 +25,8 @@ export async function getStaticProps() {
 }
 
 
+
+
 const profile = ({ data }) => {
   return (
     <div>
