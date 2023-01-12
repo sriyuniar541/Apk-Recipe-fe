@@ -5,12 +5,10 @@ import Footer from '../componen/Footer'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import Router, { useRouter } from 'next/router'
 
 
 
-export default function Home() {
-  const navigate = useRouter()
+export default function HomeLogin() {
   const [get, setGet] = useState([])
   const [search, setSearch] = useState('')
   const [page,setPage] =  useState(1)
@@ -54,18 +52,19 @@ export default function Home() {
 
   return (
     <div className={styles.container_fluid}>
+      <Navbar />
       <div className='row '>
-        <div className='col-9 '>
-          <div className='container px-5 '>
-            <Link href='/login'><button className='btn btn-danger'>Login</button></Link>
-            <div className='d-flex justify-content-between '>
+        <div className='col-9'>
+        {/* <Navbar /> */}
+          <div className='container px-5'>
+            <div className='d-flex justify-content-between'>
               <div className='col-5' style={{ paddingTop: '20%', paddingBottom: '20%' }}>
                 <h2 className={styles.fo}>Discover Recipe & Delicious Food</h2>
                 <div className='d-flex'>
                     <input type="name" className='form-control' id="search" placeholder='Search Recipe' 
                       style={{ height: 'auto' }} value={search} onChange={e => setSearch(e.target.value)}>
                   </input>
-                  <Link href='/login'><button className='btn btn-white'>view</button></Link>
+                  <Link href='/search'><button className='btn btn-white'>view</button></Link>
                 </div>
               </div>
               <div className='col-7'>
@@ -88,9 +87,9 @@ export default function Home() {
           {sortByIdDesc.map((p, i) => {
             if (i < 2 ) {
               return (
-                <div className='col-3 mt-5' key={p.id}>
-                  <Link href={`/login`}>
-                    <img src={p.photo} alt='' style={{ width: '350px', height:'auto' }} className='img-fluid'/>
+                <div className='col-4 mt-5' key={p.id}>
+                  <Link href={`/recipe/${p.id}`}>
+                    <img src={p.photo} alt='' style={{ width: '100%', height:'100%' }} />
                     {/* width: '400px' ,height: '400px' */}
                   </Link>
                 </div>
@@ -117,7 +116,7 @@ export default function Home() {
                     <h4>Healthy Bone Broth Ramen (Quick & Easy)</h4>
                     <hr />
                     <p>{p.description}</p>
-                    <Link href={`/login`}><button className='btn btn-warning text-white'>Learn More</button>
+                    <Link href={`/recipe/${p.id}`}><button className='btn btn-warning text-white'>Learn More</button>
                     </Link>
                   </div>
                 </div>
@@ -135,8 +134,8 @@ export default function Home() {
             if (i < 6) {
               return (
                 <div className='col-4 mt-5' key={p.id}>
-                  <Link href={`/login`}>
-                    <img src={p.photo} alt=''  style={{ width: '350px', height:'auto' }} className='img-fluid'/>
+                  <Link href={`/recipe/${p.id}`}>
+                    <img src={p.photo} alt='' style={{ width: '100%' }} />
                   </Link>
                 </div>
               )

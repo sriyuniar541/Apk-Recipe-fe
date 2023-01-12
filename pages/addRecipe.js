@@ -6,6 +6,8 @@ import { useRouter } from 'next/router'
 
 
 export default function AddRecepi() {
+  const navigate = useRouter()
+  const [token] = useState(JSON.parse(localStorage.getItem('token')))
   const router = useRouter()
   const [photo,setPhoto] = useState(null)
   const [post,setPost] = useState({
@@ -13,34 +15,32 @@ export default function AddRecepi() {
       "ingredients": "",
       "vidio": "",
       "description": 'description',
-      "comment_id": 1 
-
   })
 
 const handleImage = (e) => {
   const file = e.target.files[0]
    setPhoto(file)
-  
 } 
 
 const handlePost =  (e) => {
   e.preventDefault()
-  
   const formData = new FormData()
   formData.append ('title',post.title)
   formData.append ('ingredients',post.ingredients)
   formData.append ('vidio',post.vidio)
   formData.append ('photo',photo)
   formData.append ('description',post.description)
-  formData.append ('comment_id',post.comment_id)
   console.log(formData)
 
   axios.post('http://localhost:4001/recipe',formData, {
-    headers: { 'Content-Type': 'multipart/form-data' }
+    'Content-Type': 'multipart/form-data' ,
+    headers : { Authorization : `Bearer ${token}`}
   })
       .then(res => {console.log(res, 'input data success')
         alert('input data success');
-      })
+        navigate.push('/search')
+       
+      }) 
       .catch( (err) => {
       console.log(err.message, 'input data fail')
       alert('input data fail');

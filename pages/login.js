@@ -1,17 +1,14 @@
 import Image from 'next/image'
 import styles from '../styles/Import.module.css'
 import Link from 'next/link'
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useState} from 'react'
 import { useRouter } from 'next/router'
-import { GlobalConten } from './contenApi/globalConten'
 
 
 
 
 export default function  Login () {
   const router = useRouter()
-  const {adminLogin} = useContext(GlobalConten)
-  
   const [inputData, setInputData] = useState({
     email: '',
     password: ''
@@ -21,21 +18,26 @@ export default function  Login () {
     e.preventDefault()
     const {password,email} = inputData
     const data = {password,email}
-    adminLogin(data)
+    // adminLogin(data)
 
-    // const res = await (await fetch('http://localhost:4001/users/login', {
-    //   method : 'POST',
-    //   body : JSON.stringify(data),
-    //   headers : { 'Content-Type' :'application/json' }
-    // })).json()
-    // if (res.success) {
-    //   alert(res.message);
-    //   setInputData({
-    //     email: '',
-    //     password: ''
-    //   })
-    //   router.push('/')
-    // }
+    const res = await (await fetch('http://localhost:4001/users/login', {
+      method : 'POST',
+      body : JSON.stringify(data),
+      headers : { 'Content-Type' :'application/json' }
+    })).json()
+    if (res.success) {
+      alert(res.message);
+      setInputData({
+        email: '',
+        password: ''
+      })
+      localStorage.setItem('data', JSON.stringify(res.data))
+      localStorage.setItem('token',JSON.stringify(res.data.token))
+      router.push('/Home')
+    }  else {
+      alert(res.message)
+      console.log(res)
+  } 
   }
 
   const onChangeHandler = (e) => {
@@ -50,6 +52,7 @@ export default function  Login () {
     <div className=''>
       <div className='row'>
         <div className='col-6 text-center'>
+        {/* <Image src='/h1.png' width={600} height={1000} alt='' /> */}
           <div className={styles.g}>
               <div className={styles.g1} >
                 <Image src='/bg2.png' width={700} height={550} alt='' style={{paddingTop:'50%',paddingBottom:'50%'}}/>
@@ -57,7 +60,7 @@ export default function  Login () {
           </div>
         </div>
         
-        <div className='col-lg-6' style={{width:'100',boxSizing:'border-box',paddingTop:'6%',paddingBottom:'6%'}}>
+        <div className='col-lg-6' style={{boxSizing:'border-box',paddingTop:'6%',paddingBottom:'6%'}}>
             <div className='text-center mb-5'>
               <h1 style={{color:'#EFC81A'}}>WELCOME</h1>
             <p style={{color:'#8692A6'}}>Log in into your exiting account</p>

@@ -1,47 +1,64 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { useContext, useEffect } from 'react'
-import { GlobalConten } from '../pages/contenApi/globalConten'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
+import axios from 'axios'
 
 
 export default function Navbar() {
   const router = useRouter()
-  //mengimpor function dari GlobalConten
-  const {adminLogout, data} = useContext(GlobalConten)
-  console.log( 'ini data dari login',data)
+  // const [user, setUser] = useState ([])
+  const [data, setData] = useState ([])
+  console.log(data)
+  // const [token, setToken] = useState(JSON.parse(localStorage.getItem('token')))
 
-  //membuat logout function dibuat di GlobalConten
   const logout = () => {
-    adminLogout()
+    localStorage.removeItem('token')
+    localStorage.removeItem('data')
+    router.push('/login') 
   }
 
-  // useEffect (()=>{
-  //   if(!localStorage.getItem('token')){
-  //       router.push('/')
-  //   }
-  // })
+  // useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('data'))
+      // setUser(user)
+      console.log(user.id)
+  // },[])
+
+  const apiRecepi = `http://localhost:4001/users/${user.id}`
+  useEffect(() => {
+    axios.get(apiRecepi)
+      .then((result) => {
+        result.data && setData(result.data.data[0])
+        console.log(result.data.data[0],'ini data navbar')
+        // alert('get data success');
+      })
+      .catch((err) => {
+        console.log(err)
+        alert('get data fail');
+      })
+  }, [])
+  
+
 
 
   return (
-    <div className='col-12 '>
-      <div className='container py-lg-4'>
-        <div className='row'>
-            <div className='col-11'>
-                <Link href='/' className='text-primary'><b>Home</b></Link>
+    <div className=' container-fluid ' style={{backgroundColor:'#FFF5EC'}}>
+      <div className='container'>
+        <div className='row py-3'>
+            <div className='col-lg-10 col-8 p-2'>
+                <Link href='/Home' className='text-primary'><b>Home</b></Link>
                 <Link href='/addRecipe'className='px-3 text-primary'><b>Add Recepi</b></Link>
-                <Link href='profile'className='px-3 text-primary'><b>Profile</b> </Link>
+                <Link href='/profile'className='px-3 text-primary'><b>Profile</b> </Link>
             </div>
-            <div className='col-1 d-flex'>
-                {/* <Link href='profile' ><Image src={data.photo} alt='' width={40} height={40}/></Link> */}
-                <Link href='profile' ><Image src='/bg.png' alt='' width={40} height={40}/></Link>
-                <p className=''> {data.name} </p>
-                <button onClick={logout}>logout</button> 
+            <div className='col-lg-2 col-4  d-flex'>
+                <Link href='profile' ><img src={data? data.photo :'data not found'} alt='' width={40} height={40} style={{borderRadius:'50%'}}/></Link>
+                {/* <Link href='profile' ><Image src='/bg.png' alt='' width={40} height={40}/></Link> */}
+                <p className='px-2 text-primary mt-2'><b>{data? data.name : 'data not found'}</b> </p>
+                <button className=' btn btn-white text-primary mb-2' onClick={logout}><b>logout</b> </button> 
             </div> 
         </div>
       </div>
-    </div>
-    
+    </div> 
   )
 }
 

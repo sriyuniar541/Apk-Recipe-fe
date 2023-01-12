@@ -8,12 +8,38 @@ import { useRouter } from 'next/router'
 import axios from 'axios'
 
 
-export default function ChangeP() {
+
  
+export default function ChangeP() {
+  // const [user, setUser] = useState ([])
+  const [token] = useState(JSON.parse(localStorage.getItem('token')))
+  const [data, setData] = useState ([])
   const router = useRouter()
   const [password, setPassword] = useState('')
-  const [photo, setPhoto] = useState('')
+  const [photo, setPhoto] = useState(null)
+  console.log(data,'dari change password')
+
+  // useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('data'))
+      // setUser(user)
+      console.log(user.id)
+  // },[])
+
+  const apiRecepi = `http://localhost:4001/users/${user.id}`
+  useEffect(() => {
+    axios.get(apiRecepi)
+      .then((result) => {
+        result.data && setData(result.data.data[0])
+        console.log(result.data.data[0],'ini data user')
+        // alert('get data success');
+      })
+      .catch((err) => {
+        console.log(err)
+        alert('get data fail');
+      })
+  }, [])
  
+  
   const onChangeHandler = (e) => {
     const name = e.target.name
     const value = e.target.value
@@ -31,8 +57,9 @@ export default function ChangeP() {
     formData.append ('password',password)
     formData.append ('photo',photo)
     console.log(formData)
-    const res = axios.put(`http://localhost:4001/users/update/1`,formData, {
-      headers: { 'Content-Type': 'multipart/form-data' }
+    const res = axios.put(`http://localhost:4001/users/update/${user.id}`,formData, {
+      'Content-Type': 'multipart/form-data' ,
+      headers : { Authorization : `Bearer ${token}`}
     })
     .then(res => {console.log(res, 'update data success')
     alert('update data success');
@@ -43,7 +70,6 @@ export default function ChangeP() {
     alert('update data fail');
     })
   }
-
 
   //hanya yang sudah login yg blh ke sini
     useEffect (()=>{
@@ -60,10 +86,11 @@ export default function ChangeP() {
       <Navbar />
         <><div className='container text-center' style={{ marginTop: '5%', marginBottom: '5%' }} >
           <form onSubmit={formPost}>
+          <img src={data? data.photo : 'data not found'} className='image-fluid' alt='' style={{ borderRadius: '50%', width: '172px', height: '172px' }} />
             <button className='btn btn-outline-light' style={{ marginTop: '12%' }}><img src='/ed.png' alt='' /></button>
             <div className='col-3 offset-4 mt-3'>
               <input type="file" name='photo' className="form-control" id="FormControl" style={{ backgroundColor: '#E7E7E7' }}  placeholder="Change Photo"  onChange={handlePhoto} />
-              <input type='text' name='password' className="form-control mb-3" placeholder="Change Password" style={{ backgroundColor: '#E7E7E7' }}  onChange={onChangeHandler} /> 
+              <input type='text' name='password' className="form-control mb-3" placeholder="Change Password" style={{ backgroundColor: '#E7E7E7' }}  onChange={((e)=> {setPassword(e.target.value)})} /> 
             </div>
           </form>
         </div>

@@ -1,41 +1,94 @@
+import React from 'react'
 import Link from 'next/link'
 import FotterP from '../componen/fotterP'
 import Navbar from '../componen/Navbar'
 import CardProfile from '../componen/cardProfile'
+import {  useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
+import axios from 'axios' 
+import Image from 'next/image'
 
+export default function Profile() {
+  const token = JSON.parse(localStorage.getItem('token'))
+  const router = useRouter()
+  const [data, setData] = useState ([])
+  const [recipe, setRecipe] = useState ([])
+  console.log(data,'dari profile')
 
-export async function getStaticProps() {
-  const id = 1
-  const res = await fetch(`http://localhost:4001/users/${id}`)
-  const response = await res.json()
-  const data = response.data[0]
-  console.log(data)
+  // useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('data'))
+      // setUser(user)
+      // console.log(user.id)
+  // },[])
 
-  if (!data) {
-    return {
-      notFound: true
-    }
+  const apiRecepi = `http://localhost:4001/users/${user.id}`
+  useEffect(() => {  
+    axios.get(apiRecepi)
+      .then((result) => {
+        result.data && setData(result.data.data[0])
+        console.log(result.data.data[0],'ini data user')
+        // alert('get data success');
+      })
+      .catch((err) => {
+        console.log(err)
+        alert('get data fail');
+      })
+  }, [])
+
+  const myrecipe = () => {
+    axios.get(`http://localhost:4001/recipe/user`, {
+      headers : {
+        Authorization : `Bearer ${token}`
+      }
+    })
+      .then((result) => {
+        result.data && setRecipe(result.data.data)
+        console.log(result.data.data,'ini data my recipe')
+        // alert('get my recipe success');
+      })
+      .catch((err) => {
+        console.log(err)
+        alert('get my recipe fail');
+      })
   }
 
-  return {
-    props: {
-      data,
-    }
+  useEffect(() => {  
+    myrecipe()
+    console.log(recipe.id,'data recipe')
+  },[])
+
+
+
+  const handleDelete = (id) => {
+    axios.delete(`http://localhost:4001/recipe/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+      .then((result) => {
+        alert('delete recipe success');
+        myrecipe()
+      })
+      .catch((err) => {
+        console.log(err)
+        alert('delete recipe fail');
+      })
   }
-}
 
 
 
-
-const profile = ({ data }) => {
+  
   return (
     <div>
+      <div>
       <Navbar />
-      <><div className='container text-center' style={{ marginTop: '5%', marginBottom: '5%' }} key={data.id}>
-        <img src={data.photo} alt='' style={{ borderRadius: '50%', width: '172px', height: '172px' }} />
+      <>
+      <div className='container text-center' style={{ marginTop: '5%', marginBottom: '5%' }} >
+        <img src={data? data.photo : 'data not found'} className='image-fluid' alt='' style={{ borderRadius: '50%', width: '172px', height: '172px' }} />
         <Link href='/changeP'><button className='btn btn-outline-light' style={{ marginTop: '12%' }}><img src='/ed.png' alt='' /></button> </Link>
-        <h6 className='mt-3' style={{ marginRight: '5%' }}>{data.name}</h6>
+        <h6 className='mt-3' style={{ marginRight: '5%' }}>{data? data.name : 'data not found'}</h6>
       </div>
+      {/* <PrifileCard/> */}
         <div className='container'>
           {/* menu */}
           <ul className="nav nav-tabs">
@@ -51,19 +104,101 @@ const profile = ({ data }) => {
           </ul>
         </div>
         <hr />
-        <di v className='container'>
-          <div className='row'>
-            <CardProfile />
-            <CardProfile />
+        <div className='container'>
+          <div className='row d-flex justify-content-start '>
+            {recipe.map((p) => (
+              <>
+                <div className='col-6 col-lg-2 mx-lg-3 mb-3' key={p.id}>
+                  {/* <CardProfile src={p.photo}/> */}
+                 <img src={p.photo} alt='insert gambar' width={200} height={200} className='image-fluid' />
+                  <button className='btn btn-danger me-3' onClick={()=> handleDelete(p.id)}>Delete</button>
+                  <Link href={`/recipe/${p.id}`}><button className='btn btn-warning text-white'>View</button></Link>
+                </div>
+              </>
+            ))}
           </div>
-        </di>
+        </div>
       </>
       <FotterP />
+    </div>
     </div>
   )
 }
 
-export default profile
+
+
+
+
+
+
+
+
+
+
+// import Link from 'next/link'
+// import FotterP from '../componen/fotterP'
+// import Navbar from '../componen/Navbar'
+// import CardProfile from '../componen/cardProfile'
+// import PrifileCard from '../componen/prifileCard'
+
+
+// export async function getStaticProps() {
+//   const id = 1
+//   const res = await fetch(`http://localhost:4001/users/${id}`)
+//   const response = await res.json()
+//   const data = response.data[0]
+//   console.log(data)
+
+//   if (!data) {
+//     return {
+//       notFound: true
+//     }
+//   }
+
+//   return {
+//     props: {
+//       data,
+//     }
+//   }
+// }
+
+
+
+
+// const profile = ({ data }) => {
+//   return (
+//     <div>
+//       <Navbar />
+//       <>
+//       <PrifileCard/>
+//         <div className='container'>
+//           {/* menu */}
+//           <ul className="nav nav-tabs">
+//               <li className="nav-item">
+//                   <Link href='/profile' className='px-3'>My Recipe</Link>
+//               </li>
+//               <li className="nav-item">
+//                   <Link href='/savedRecipe' className='px-3'>Saved Recipe</Link>
+//               </li>
+//               <li className="nav-item">
+//                   <Link href='/likedRecipe' className='px-3'>Liked Recipe</Link>
+//               </li>
+//           </ul>
+//         </div>
+//         <hr />
+//         <di v className='container'>
+//           <div className='row'>
+//             <CardProfile />
+//             <CardProfile />
+//           </div>
+//         </di>
+//       </>
+//       <FotterP />
+//     </div>
+//   )
+// }
+
+// export default profile
 
 
 

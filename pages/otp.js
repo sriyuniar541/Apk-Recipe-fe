@@ -8,15 +8,12 @@ import { useRouter } from 'next/router'
 
 
 export default function  Otp () {
-
+  const otp = JSON.parse(localStorage.getItem('data'))
   const router = useRouter()
-
   const [inputData, setInputData] = useState({
-    
     email: '',
-    otp: ''
+    otp: otp.otp
   })
-
 
   const registerHandling = async (e) => {
     e.preventDefault()
@@ -35,6 +32,8 @@ export default function  Otp () {
         otp: ''
       })
       router.push('/login')
+    } else{
+      alert(res.message);
     }
   }
 
@@ -57,14 +56,13 @@ export default function  Otp () {
               </div>
           </div>
         </div>
-        
         <div className='col-lg-6' style={{paddingTop:'15%',paddingBottom:'15%'}}> 
           <form onSubmit={registerHandling} className='col-lg-6 offset-lg-3'>
               <label className="form-label" style={{ color: '#8692A6' }}>Email</label>
               <input type='text'  name="email" className="form-control" id="FormControl" placeholder='Email address' value={inputData.email} onChange={onChangeHandler}/>
 
-              <label className="form-label" style={{ color: '#8692A6' }}>password</label>
-              <input type='text' name="otp" className="form-control" id="FormControl" placeholder='Code 6 digit' value={inputData.otp} onChange={onChangeHandler}/>
+              <label className="form-label" style={{ color: '#8692A6' }}>Otp</label>
+              <input type='text' name="otp" className="form-control" id="FormControl" placeholder={otp.otp} value={inputData.otp} onChange={onChangeHandler}/>
               <button className=' text-center btn btn-warning col-lg-6 offset-lg-3 mt-4 text-white'>Send</button>
           </form>
         </div>

@@ -1,10 +1,30 @@
-import React from 'react'
-import Navbar from '../componen/Navbar'
+import React, { useEffect, useState } from 'react'
+import Navbar from '../../componen/Navbar'
 import ReactPlayer from 'react-player'
+import { useRouter } from 'next/router'
+import axios from 'axios'
 
 
 
 export default function DetailVidio() {
+    const [data, setData] = useState([])
+    const router = useRouter()
+    const {id} = router.query
+    const apiRecepi = `http://localhost:4001/recipe/${id}`
+ 
+  useEffect(() => {
+    axios.get(apiRecepi)
+      .then((result) => {
+        result.data && setData(result.data.data[0])
+        console.log(result.data.data[0],'ini dari detail vidio')
+        // alert('get data success');
+      })
+      .catch((err) => {
+        console.log(err)
+        alert('get data fail');
+      })
+  }, [])
+
     return (
         <div className='container-fluid'>
             <div className='row'>
@@ -16,7 +36,7 @@ export default function DetailVidio() {
                     <div className='container'>
                         <div className='row '>
                             <div className='col-7'>
-                                <ReactPlayer url='https://www.youtube.com/watch?v=Mi72fOuiwA0' />
+                                <ReactPlayer url={data?data.vidio:'data not found'} />
                                 <h4 className='mt-3'>Beef Steak with Curry Sauce - [Step 4] Cut the condiment and then mix it</h4>
                                 <p>3 Mont ago</p>
                             </div>

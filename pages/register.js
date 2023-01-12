@@ -9,14 +9,12 @@ import { useRouter } from 'next/router'
 
 export default function Register() {
   const router = useRouter()
-
   const [inputData, setInputData] = useState({
     name: '',
     email: '',
     phone_number: '',
     password: ''
   })
-
 
   const registerHandling = async (e) => {
     e.preventDefault()
@@ -36,12 +34,12 @@ export default function Register() {
         phone_number: '',
         password: ''
       })
+      localStorage.setItem('data', JSON.stringify(res.data))
       router.push('/otp')
     } else {
-      alert(res.message, 'input data fail');
+      alert(res.data, 'input data fail');
     }
   }
-
 
   const onChangeHandler = (e) => {
     const name = e.target.name
@@ -56,7 +54,6 @@ export default function Register() {
         <div className='col-6 text-center'>
           <div className={styles.g}>
             <div className={styles.g1} >
-              {/* <Image src='/bg2.png' width={700} height={550} alt='' style={{ paddingTop: '50%', paddingBottom: '50%' }} /> */}
             </div>
           </div>
         </div>

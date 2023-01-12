@@ -6,7 +6,6 @@ import Form from '../componen/form'
 
 
 
-
 export default function  ForgotPassword () {
   return (
     <div className=''>

@@ -7,6 +7,7 @@ import { useRouter } from 'next/router'
 const GlobalProvider = ({ children }) => {
     const router = useRouter()
     const [token, setToken] = useState(!ISSERVER ? localStorage.getItem('token') || false : '')
+    const [user, setUser] = useState(!ISSERVER ? localStorage.getItem('data') || false : '')
     const [data, setData] = useState('')
 
     //untuk post data login dan menyimpan token dalam cookies localstorage browser
@@ -21,45 +22,29 @@ const GlobalProvider = ({ children }) => {
             alert(res.message);
                 email: '';
                 password: ''
-                localStorage.setItem('token',res.data.token)
+                localStorage.setItem('data', JSON.stringify(res.data))
+                localStorage.setItem('token',JSON.stringify(res.data.token))
+                setUser(res.data) 
                 setToken(res.data.token) 
-                console.log(res.data)
-                router.push('/')
+                // console.log(res.data.data)
+                router.push('/ ')
         } else {
             alert(res.message)
             console.log(res)
         } 
     }
 
-    //get admin username
-    const getAdmin = async () => {
-        const res = await (await fetch('http://localhost:4001/users', {
-            method: 'GET',
-            headers: { 'Content-Type': 'application/json' ,
-            token : localStorage.getItem('token')    
-        }
-        })).json()
-        setData(res.data[0])
-        console.log(res.data[0])
-
-    }
-
     //function logout
     const adminLogout = () => {
         setToken('')
         localStorage.removeItem('token')
+        localStorage.removeItem('data')
         router.push('/login') 
     }
 
-    //
-    useEffect(()=> {
-        getAdmin()
-    },[])
-
-
     return (
         <div>
-            <GlobalConten.Provider value={{ token, adminLogin, adminLogout, data  }}>
+            <GlobalConten.Provider value={{ token, adminLogin, adminLogout, data , user }}>
                 {children}
             </GlobalConten.Provider>
         </div>
