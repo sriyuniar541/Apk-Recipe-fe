@@ -11,19 +11,22 @@ import axios from 'axios'
 
  
 export default function ChangeP() {
-  // const [user, setUser] = useState ([])
-  const [token] = useState(JSON.parse(localStorage.getItem('token')))
+  let [token] = useState('')
+  let user = ''
+  if( typeof window !== 'undefined'){
+     token = JSON.parse(localStorage.getItem('token'))
+     user = JSON.parse(localStorage.getItem('data'))
+  }
+  
+  console.log(user.id)
+
   const [data, setData] = useState ([])
   const router = useRouter()
   const [password, setPassword] = useState('')
   const [photo, setPhoto] = useState(null)
   console.log(data,'dari change password')
 
-  // useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('data'))
-      // setUser(user)
-      console.log(user.id)
-  // },[])
+ 
 
   const apiRecepi = `https://courageous-lime-jaguar.cyclic.app/users/${user.id}`
   useEffect(() => {
@@ -72,12 +75,12 @@ export default function ChangeP() {
   }
 
   //hanya yang sudah login yg blh ke sini
-    useEffect (()=>{
-    if(!localStorage.getItem('token')){
-        router.push('/login')
-        alert('please login')
-    }
-  })
+  //   useEffect (()=>{
+  //   if(!localStorage.getItem('token')){
+  //       router.push('/login')
+  //       alert('please login')
+  //   }
+  // })
 
 
 

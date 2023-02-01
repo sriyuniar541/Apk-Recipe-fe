@@ -7,23 +7,27 @@ import axios from 'axios'
 
 export default function Navbar() {
   const router = useRouter()
-  // const [user, setUser] = useState ([])
   const [data, setData] = useState ([])
-  console.log(data)
-  // const [token, setToken] = useState(JSON.parse(localStorage.getItem('token')))
-
-  const logout = () => {
-    localStorage.removeItem('token')
-    localStorage.removeItem('data')
-    router.push('/login') 
+  let logout = () => {}
+  let user = ''
+  
+  if(typeof window !== 'undefined') {
+       user = JSON.parse(localStorage.getItem('data'))
+       logout = () => {
+          localStorage.removeItem('token')
+          localStorage.removeItem('data')
+          router.push('/login') 
+      }
   }
+ 
+  console.log(user.id)
+  console.log(data)
+  
+  
 
-  // useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('data'))
-      // setUser(user)
-      console.log(user.id)
-  // },[])
-
+  
+   
+    
   const apiRecepi = `https://courageous-lime-jaguar.cyclic.app/users/${user.id}`
   useEffect(() => {
     axios.get(apiRecepi)

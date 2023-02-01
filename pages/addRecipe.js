@@ -7,7 +7,10 @@ import { useRouter } from 'next/router'
 
 export default function AddRecepi() {
   const navigate = useRouter()
-  const [token] = useState(JSON.parse(localStorage.getItem('token')))
+  let [token] = useState('')
+
+  if( typeof window !== 'undefined') { 
+    token = (JSON.parse(localStorage.getItem('token'))) }
   const router = useRouter()
   const [photo,setPhoto] = useState(null)
   const [post,setPost] = useState({
@@ -54,13 +57,13 @@ const onChangeHandler = (e) => {
   setPost({ ...post, [name]: value })
 }
 
- //hanya yang sudah login yg blh ke sini
-useEffect (()=>{
-  if(!localStorage.getItem('token')){
-      router.push('/login')
-      alert('please login')
-  }
-})
+//  //hanya yang sudah login yg blh ke sini
+// useEffect (()=>{
+//   if(!localStorage.getItem('token')){
+//       router.push('/login')
+//       alert('please login')
+//   }
+// })
 
 return ( 
   <div> 

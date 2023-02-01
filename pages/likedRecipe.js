@@ -8,8 +8,14 @@ import FotterP from '../componen/fotterP'
 
 
 export default function LikedRecipe() {
-  const token = JSON.parse(localStorage.getItem('token'))
-  const userData = JSON.parse(localStorage.getItem('data'))
+  let token = ''
+  let userData = ''
+
+  if( typeof window !== 'undefined') {
+     token = JSON.parse(localStorage.getItem('token'))
+     userData = JSON.parse(localStorage.getItem('data'))
+  }
+
   const apiUser =  `https://courageous-lime-jaguar.cyclic.app/users/${userData.id}`
   const [user, setUsers] = useState([])
   const [like, setLike] = useState([])
@@ -27,13 +33,13 @@ export default function LikedRecipe() {
 
   }, [])
 
-  //hanya yang sudah login yg blh ke sini
-  useEffect(() => {
-    if (!localStorage.getItem('token')) {
-      router.push('/login')
-      alert('please login')
-    }
-  })
+  // //hanya yang sudah login yg blh ke sini
+  // useEffect(() => {
+  //   if (!localStorage.getItem('token')) {
+  //     router.push('/login')
+  //     alert('please login')
+  //   }
+  // })
 
   const myrecipe = () => {
     axios.get(`https://courageous-lime-jaguar.cyclic.app/likeRecipe`, {

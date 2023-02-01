@@ -7,14 +7,23 @@ import Navbar from '../../componen/Navbar'
 
 
 export default function DetailRecipe() {
-  const [token, setToken] = useState(JSON.parse(localStorage.getItem('token')))
-  const userData = JSON.parse(localStorage.getItem('data'))
+  
+  let [token, setToken] = useState('')
+  let userData = ''
+  let user_id =''
+
+  if(typeof window !== 'undefined') {
+    token = (JSON.parse(localStorage.getItem('token')))
+    userData = JSON.parse(localStorage.getItem('data'))
+    user_id = JSON.parse(localStorage.getItem('data')) 
+  }
+  
   console.log('ini token',token)
   const [data, setData] = useState([])
   const [comment,setComment] = useState({ comment :''})
   const [getcomment,setGetComment] = useState([])
   // console.log(getcomment)
-  const user_id = JSON.parse(localStorage.getItem('data'))
+
   const userComment= user_id.id
   // console.log(userComment)
   const [user_recipe_id] = useState(userComment)

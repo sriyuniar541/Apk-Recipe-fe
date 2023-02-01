@@ -8,7 +8,11 @@ import { useRouter } from 'next/router'
 
 
 export default function  Otp () {
-  const otp = JSON.parse(localStorage.getItem('data'))
+  let otp = ''
+  
+  if( typeof window !== 'undefined') {
+     otp = JSON.parse(localStorage.getItem('data'))
+  }
   const router = useRouter()
   const [inputData, setInputData] = useState({
     email: '',

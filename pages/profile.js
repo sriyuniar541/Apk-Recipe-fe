@@ -9,17 +9,19 @@ import axios from 'axios'
 import Image from 'next/image'
 
 export default function Profile() {
-  const token = JSON.parse(localStorage.getItem('token'))
+  let token = ''
+  let user = ''
   const router = useRouter()
   const [data, setData] = useState ([])
   const [recipe, setRecipe] = useState ([])
   console.log(data,'dari profile')
+  
 
-  // useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('data'))
-      // setUser(user)
-      // console.log(user.id)
-  // },[])
+  if( typeof window !== 'undefined') {
+    token = JSON.parse(localStorage.getItem('token'))
+    user = JSON.parse(localStorage.getItem('data'))
+  }
+    
 
   const apiRecepi = `https://courageous-lime-jaguar.cyclic.app/users/${user.id}`
   useEffect(() => {  
