@@ -10,7 +10,7 @@ export default function DetailVidio() {
     const [data, setData] = useState([])
     const router = useRouter()
     const {id} = router.query
-    const apiRecepi = `http://localhost:4001/recipe/${id}`
+    const apiRecepi = `https://courageous-lime-jaguar.cyclic.app/recipe/${id}`
  
   useEffect(() => {
     axios.get(apiRecepi)

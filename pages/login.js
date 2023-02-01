@@ -20,7 +20,7 @@ export default function  Login () {
     const data = {password,email}
     // adminLogin(data)
 
-    const res = await (await fetch('http://localhost:4001/users/login', {
+    const res = await (await fetch('https://courageous-lime-jaguar.cyclic.app/users/login', {
       method : 'POST',
       body : JSON.stringify(data),
       headers : { 'Content-Type' :'application/json' }

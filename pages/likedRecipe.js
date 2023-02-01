@@ -10,7 +10,7 @@ import FotterP from '../componen/fotterP'
 export default function LikedRecipe() {
   const token = JSON.parse(localStorage.getItem('token'))
   const userData = JSON.parse(localStorage.getItem('data'))
-  const apiUser =  `http://localhost:4001/users/${userData.id}`
+  const apiUser =  `https://courageous-lime-jaguar.cyclic.app/users/${userData.id}`
   const [user, setUsers] = useState([])
   const [like, setLike] = useState([])
 
@@ -36,7 +36,7 @@ export default function LikedRecipe() {
   })
 
   const myrecipe = () => {
-    axios.get(`http://localhost:4001/likeRecipe`, {
+    axios.get(`https://courageous-lime-jaguar.cyclic.app/likeRecipe`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -53,7 +53,7 @@ export default function LikedRecipe() {
   }
 
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:4001/likeRecipe/${id}`, {
+    axios.delete(`https://courageous-lime-jaguar.cyclic.app/likeRecipe/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }

@@ -13,7 +13,7 @@ export default function HomeLogin() {
   const [search, setSearch] = useState('')
   const [page,setPage] =  useState(1)
   let [limit,setLimit] =  useState(6)
-  const apiRecepi = `http://localhost:4001/recipe?page=${page}&limit=${limit}`
+  const apiRecepi = `https://courageous-lime-jaguar.cyclic.app/recipe`
   
   useEffect(() => {
     axios.get(apiRecepi)

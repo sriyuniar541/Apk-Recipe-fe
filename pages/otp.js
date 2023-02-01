@@ -20,7 +20,7 @@ export default function  Otp () {
     const { email, otp } = inputData
     const data = { email, otp }
 
-    const res = await (await fetch('http://localhost:4001/users/email/verif', {
+    const res = await (await fetch('https://courageous-lime-jaguar.cyclic.app/users/email/verif', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: { 'Content-Type': 'application/json' }

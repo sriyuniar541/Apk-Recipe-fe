@@ -21,7 +21,7 @@ export default function Register() {
     const {name, password, email, phone_number } = inputData
     const data = { name, password, email, phone_number }
 
-    const res = await (await fetch('http://localhost:4001/users/register', {
+    const res = await (await fetch('https://courageous-lime-jaguar.cyclic.app/users/register', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: { 'Content-Type': 'application/json' }

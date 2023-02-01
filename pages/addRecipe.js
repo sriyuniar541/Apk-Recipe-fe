@@ -32,7 +32,7 @@ const handlePost =  (e) => {
   formData.append ('description',post.description)
   console.log(formData)
 
-  axios.post('http://localhost:4001/recipe',formData, {
+  axios.post('https://courageous-lime-jaguar.cyclic.app/recipe',formData, {
     'Content-Type': 'multipart/form-data' ,
     headers : { Authorization : `Bearer ${token}`}
   })

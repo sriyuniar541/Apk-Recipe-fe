@@ -25,7 +25,7 @@ export default function ChangeP() {
       console.log(user.id)
   // },[])
 
-  const apiRecepi = `http://localhost:4001/users/${user.id}`
+  const apiRecepi = `https://courageous-lime-jaguar.cyclic.app/users/${user.id}`
   useEffect(() => {
     axios.get(apiRecepi)
       .then((result) => {
@@ -57,7 +57,7 @@ export default function ChangeP() {
     formData.append ('password',password)
     formData.append ('photo',photo)
     console.log(formData)
-    const res = axios.put(`http://localhost:4001/users/update/${user.id}`,formData, {
+    const res = axios.put(`https://courageous-lime-jaguar.cyclic.app/users/update/${user.id}`,formData, {
       'Content-Type': 'multipart/form-data' ,
       headers : { Authorization : `Bearer ${token}`}
     })

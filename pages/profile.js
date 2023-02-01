@@ -21,7 +21,7 @@ export default function Profile() {
       // console.log(user.id)
   // },[])
 
-  const apiRecepi = `http://localhost:4001/users/${user.id}`
+  const apiRecepi = `https://courageous-lime-jaguar.cyclic.app/users/${user.id}`
   useEffect(() => {  
     axios.get(apiRecepi)
       .then((result) => {
@@ -36,7 +36,7 @@ export default function Profile() {
   }, [])
 
   const myrecipe = () => {
-    axios.get(`http://localhost:4001/recipe/user`, {
+    axios.get(`https://courageous-lime-jaguar.cyclic.app/recipe/user`, {
       headers : {
         Authorization : `Bearer ${token}`
       }
@@ -60,7 +60,7 @@ export default function Profile() {
 
 
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:4001/recipe/${id}`, {
+    axios.delete(`https://courageous-lime-jaguar.cyclic.app/recipe/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -125,80 +125,6 @@ export default function Profile() {
   )
 }
 
-
-
-
-
-
-
-
-
-
-
-// import Link from 'next/link'
-// import FotterP from '../componen/fotterP'
-// import Navbar from '../componen/Navbar'
-// import CardProfile from '../componen/cardProfile'
-// import PrifileCard from '../componen/prifileCard'
-
-
-// export async function getStaticProps() {
-//   const id = 1
-//   const res = await fetch(`http://localhost:4001/users/${id}`)
-//   const response = await res.json()
-//   const data = response.data[0]
-//   console.log(data)
-
-//   if (!data) {
-//     return {
-//       notFound: true
-//     }
-//   }
-
-//   return {
-//     props: {
-//       data,
-//     }
-//   }
-// }
-
-
-
-
-// const profile = ({ data }) => {
-//   return (
-//     <div>
-//       <Navbar />
-//       <>
-//       <PrifileCard/>
-//         <div className='container'>
-//           {/* menu */}
-//           <ul className="nav nav-tabs">
-//               <li className="nav-item">
-//                   <Link href='/profile' className='px-3'>My Recipe</Link>
-//               </li>
-//               <li className="nav-item">
-//                   <Link href='/savedRecipe' className='px-3'>Saved Recipe</Link>
-//               </li>
-//               <li className="nav-item">
-//                   <Link href='/likedRecipe' className='px-3'>Liked Recipe</Link>
-//               </li>
-//           </ul>
-//         </div>
-//         <hr />
-//         <di v className='container'>
-//           <div className='row'>
-//             <CardProfile />
-//             <CardProfile />
-//           </div>
-//         </di>
-//       </>
-//       <FotterP />
-//     </div>
-//   )
-// }
-
-// export default profile
 
 
 

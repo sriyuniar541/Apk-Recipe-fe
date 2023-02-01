@@ -24,7 +24,7 @@ export default function Navbar() {
       console.log(user.id)
   // },[])
 
-  const apiRecepi = `http://localhost:4001/users/${user.id}`
+  const apiRecepi = `https://courageous-lime-jaguar.cyclic.app/users/${user.id}`
   useEffect(() => {
     axios.get(apiRecepi)
       .then((result) => {
@@ -51,7 +51,7 @@ export default function Navbar() {
                 <Link href='/profile'className='px-3 text-primary'><b>Profile</b> </Link>
             </div>
             <div className='col-lg-2 col-4  d-flex'>
-                <Link href='profile' ><img src={data? data.photo :'data not found'} alt='' width={40} height={40} style={{borderRadius:'50%'}}/></Link>
+                <Link href='/profile' ><img src={data? data.photo :'data not found'} alt='' width={40} height={40} style={{borderRadius:'50%'}}/></Link>
                 {/* <Link href='profile' ><Image src='/bg.png' alt='' width={40} height={40}/></Link> */}
                 <p className='px-2 text-primary mt-2'><b>{data? data.name : 'data not found'}</b> </p>
                 <button className=' btn btn-white text-primary mb-2' onClick={logout}><b>logout</b> </button> 
