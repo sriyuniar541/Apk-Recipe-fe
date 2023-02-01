@@ -82,7 +82,7 @@ https://courageous-lime-jaguar.cyclic.app // or use your own
 
 - [`Recipe Demo`](https://meek-dasik-7555c9.netlify.app/)
 - [`Recipe REST API`](https://courageous-lime-jaguar.cyclic.app)
-- [`Peworld REST API Repository`](https://github.com/sriyuniar541/Apk-Belanja-Be)
+- [`Peworld REST API Repository`](https://github.com/sriyuniar541/Apk-Recipe-be)
 
 ## Contact
   - Sri Yuniar [@sriyuniar541](https://github.com/sriyuniar541)
