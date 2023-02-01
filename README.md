@@ -20,7 +20,7 @@
 
 ## About The Project
 
-App to share food recipes and get new recipes [demo flyer](https://meek-dasik-7555c9.netlify.app/)
+App to share food recipes and get new recipes [demo recipe](https://meek-dasik-7555c9.netlify.app/)
 
 ### Built With
 
