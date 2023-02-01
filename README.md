@@ -1,34 +1,88 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">Recipe</h1>
+
+<p align="center">
+  <img height="150" src="https://res.cloudinary.com/dxrsjyu6o/image/upload/v1675087793/recipe/bg2_tabsqa.png"  />
+</p>
+<p align="center">
+  Built with Next Js.
+</p>
+
+## Table of Contents
+
+- [About the Project](#about-the-project)
+  - [Built With](#built-with)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Related Project](#related-project)
+- [Screenshot](#screenshot)
+- [Contact](#contact)
+
+## About The Project
+
+App to share food recipes and get new recipes [demo flyer](-------link demo disini------)
+
+### Built With
+
+- [Node JS](https://nodejs.org/en/docs/)
+- [Next JS](//nextjs.org/)
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+This is an example of how to list things you need to use the software and how to install them.
+
+- [nodejs](https://nodejs.org/en/download/)
+
+### Installation
+
+1. Clone the repo
 
 ```bash
-npm run dev
-# or
-yarn dev
+git clone [https://github.com/sriyuniar541/Apk-Recipe-fe]
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install NPM packages
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```bash
+npm install
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+3. Add .env file at root folder project, and add following
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```bash
+================lingk env backend disini========= // or use your own
+```
 
-## Learn More
+## Screenshot
 
-To learn more about Next.js, take a look at the following resources:
+| Login Page                                | Register Page                      | Verif Page                          |
+| ----------------------------------------- | -------------------------------------------- | -------------------------------------------- |
+| ![login](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1675087313/recipe/login-recipe_xbqjbb.png) | ![register](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1675087321/recipe/register-recipe_oordg9.png) | ![verif](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1675087311/recipe/otp-recipe_auvprc.png) |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Landing Page                                               | New recipe                       | Populer Recipe                                            |
+| ---------------------------------------------------------- | -------------------------------------------- | ------------------------------------------------- |
+| ![landing page](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1675087307/recipe/landingPageLodgin-recipe_wluxgr.png) | ![new recipe](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1675087308/recipe/newrecipe-recipe_fblulo.png) | ![populer recipe](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1675087319/recipe/populerrecipe-recipe_u4mqrk.png) |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+| Recipe List                                            | Detail Recipe                                          | Detail ingrediance and Vidio                                               |
+| --------------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------------- |
+| ![recipe list](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1675087300/recipe/daftarrecipeLengkap-recipe_nisqvc.png) | ![detail recipe](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1675087301/recipe/detailRecipe-recipe_vvzas3.png) | ![detail](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1675087294/recipe/detailrecipeAndIngrediance-recipe_r8hy1d.png) |
 
-## Deploy on Vercel
+| comment                                           | Add Recipe                                         | Detail Vidio Recipe                                         |
+| ------------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------- |
+| ![comment](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1675087294/recipe/comment-recipe_hcexj8.png) | ![add recipe](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1675087294/recipe/addRecipe-recipe_dlw9no.png) | ![detail vidio](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1675087307/recipe/detailVidio-recipe_xpkp4l.png) |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Profile and My Recipe                                  | Edit Profile                                    |                                      
+| ---------------------------------------------- | ------------------------------------------------- |
+| ![profile](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1675087304/recipe/myrecipe-recipe_otcixl.png) | ![edit profile](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1675087297/recipe/editProfile-recipe_jrergs.png) |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Related Project
+
+- [`Recipe Demo`](====link deploy here===)
+- [`Recipe REST API`](===link deploy be =====)
+- [`Peworld REST API Repository`](https://github.com/sriyuniar541/Apk-Belanja-Be)
+
+## Contact
+  - Sri Yuniar [@sriyuniar541](https://github.com/sriyuniar541)
