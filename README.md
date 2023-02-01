@@ -20,7 +20,7 @@
 
 ## About The Project
 
-App to share food recipes and get new recipes [demo flyer](-------link demo disini------)
+App to share food recipes and get new recipes [demo flyer](https://meek-dasik-7555c9.netlify.app/)
 
 ### Built With
 
@@ -52,7 +52,7 @@ npm install
 3. Add .env file at root folder project, and add following
 
 ```bash
-================lingk env backend disini========= // or use your own
+https://courageous-lime-jaguar.cyclic.app // or use your own
 ```
 
 ## Screenshot
