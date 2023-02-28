@@ -13,8 +13,6 @@ export default function Home() {
   const navigate = useRouter()
   const [get, setGet] = useState([])
   const [search, setSearch] = useState('')
-  const [page, setPage] = useState(1)
-  let [limit, setLimit] = useState(6)
   const apiRecepi = `https://courageous-lime-jaguar.cyclic.app/recipe`
 
   useEffect(() => {
@@ -27,19 +25,7 @@ export default function Home() {
         console.log(err)
         alert('get data fail');
       })
-  }, [page])
-
-  const next = () => {
-    setPage(page + 1)
-  }
-
-  const prev = () => {
-    if (page === 0) {
-      setPage(page == 1)
-    } else {
-      setPage(page - 1)
-    }
-  }
+  }, [])
 
   //search/filter
   const filterRecipe = get.filter(recipe => {
@@ -206,19 +192,6 @@ export default function Home() {
               )
             }
           })}
-        </div>
-        <div className='col-12 offset-5 mt-5 text-center'>
-          <ul className="pagination">
-            <button className="page-item border-white" onClick={prev}>
-              Back
-            </button>
-            <li className="page-item">
-              <a className="page-link" href="#">{page}</a>
-            </li>
-            <button className="page-item border-white" onClick={next}>
-              Next
-            </button>
-          </ul>
         </div>
       </div >
       <Footer />
