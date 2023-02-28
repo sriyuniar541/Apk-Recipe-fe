@@ -20,7 +20,7 @@
 
 ## About The Project
 
-App to share food recipes and get new recipes [demo flyer](-------link demo disini------)
+App to share food recipes and get new recipes [demo recipe](https://meek-dasik-7555c9.netlify.app/)
 
 ### Built With
 
@@ -52,7 +52,7 @@ npm install
 3. Add .env file at root folder project, and add following
 
 ```bash
-================lingk env backend disini========= // or use your own
+https://courageous-lime-jaguar.cyclic.app // or use your own
 ```
 
 ## Screenshot
@@ -80,9 +80,9 @@ npm install
 
 ## Related Project
 
-- [`Recipe Demo`](====link deploy here===)
-- [`Recipe REST API`](===link deploy be =====)
-- [`Peworld REST API Repository`](https://github.com/sriyuniar541/Apk-Belanja-Be)
+- [`Recipe Demo`](https://meek-dasik-7555c9.netlify.app/)
+- [`Recipe REST API`](https://courageous-lime-jaguar.cyclic.app)
+- [`Peworld REST API Repository`](https://github.com/sriyuniar541/Apk-Recipe-be)
 
 ## Contact
   - Sri Yuniar [@sriyuniar541](https://github.com/sriyuniar541)
