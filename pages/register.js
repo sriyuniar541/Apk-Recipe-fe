@@ -5,8 +5,6 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 
-
-
 export default function Register() {
   const router = useRouter()
   const [inputData, setInputData] = useState({
@@ -18,8 +16,16 @@ export default function Register() {
 
   const registerHandling = async (e) => {
     e.preventDefault()
-    const {name, password, email, phone_number } = inputData
-    const data = { name, password, email, phone_number }
+    const {
+      name, 
+      password, 
+      email, 
+      phone_number } = inputData
+    const data = { 
+      name, 
+      password, 
+      email, 
+      phone_number }
 
     const res = await (await fetch('https://courageous-lime-jaguar.cyclic.app/users/register', {
       method: 'POST',
@@ -47,7 +53,7 @@ export default function Register() {
     setInputData({ ...inputData, [name]: value })
   }
 
-
+  
   return (
     <div className=''>
       <div className='row'>
@@ -57,33 +63,121 @@ export default function Register() {
             </div>
           </div>
         </div>
-        <form className='col-lg-6 p-3' style={{ width: '90', boxSizing: 'border-box' }} onSubmit={registerHandling}>
+        <form className='col-lg-6 p-3' 
+          style={{ width: '90', boxSizing: 'border-box' }} 
+          onSubmit={registerHandling}>
           <div className='text-center mb-5'>
             <h1 style={{ color: '#EFC81A' }}>Let’s Get Started !</h1>
-            <p style={{ color: '#8692A6' }}>Create new account to access all features</p>
+            <p style={{ color: '#8692A6' }}>
+              Create new account to access all features
+            </p>
           </div>
           <div className='col-lg-6 offset-lg-3 mt-2'>
-            <label className="form-label" style={{ color: '#8692A6' }}>Name</label>
-            <input type='text' className="form-control" id="FormControl" placeholder='name' name="name" value={inputData.name} onChange={onChangeHandler} />
-            <label className="form-label" style={{ color: '#8692A6' }}>Email</label>
-            <input type='text' className="form-control" id="FormControl" name="email" placeholder='Email address' value={inputData.email} onChange={onChangeHandler} />
-            <label className="form-label" style={{ color: '#8692A6' }}>phone_number</label>
-            <input type='text' className="form-control" id="FormControl" name="phone_number" placeholder='Phone Number' value={inputData.phone_number} onChange={onChangeHandler} />
-            <label className="form-label" style={{ color: '#8692A6' }}>password</label>
-            <input type='text' className="form-control" id="FormControl" name="password" placeholder=' Create New Password' value={inputData.password} onChange={onChangeHandler} />
-            <label className="form-label" style={{ color: '#8692A6' }}>New Password</label>
-            <input type='text' className="form-control" id="FormControl" name="password" placeholder=' New Password' value={inputData.password} onChange={onChangeHandler} />
+            <label
+              for = 'name' 
+              className='form-label' 
+              style={{ color: '#8692A6' }}>
+              Name
+            </label>
+            <input type='text' 
+              className='form-control' 
+              id='name' 
+              placeholder='Name' 
+              name='name' 
+              value={inputData.name} 
+              onChange={onChangeHandler} 
+              required
+            />
+            <label 
+              for='email'
+              className='form-label' 
+              style={{ color: '#8692A6' }}>
+              Email
+            </label>
+            <input type='email' 
+              className='form-control' 
+              id='email' 
+              name='email' 
+              placeholder='Email address' 
+              value={inputData.email} 
+              onChange={onChangeHandler} 
+              required
+            />
+            <label 
+              for = 'phone_number'
+              className='form-label' 
+              style={{ color: '#8692A6' }}>
+              Phone Number
+            </label>
+            <input type='text' 
+              className='form-control' 
+              id='phone_number' 
+              name='phone_number' 
+              placeholder='Phone Number' 
+              value={inputData.phone_number} 
+              onChange={onChangeHandler} 
+            />
+            <label 
+              for='password'
+              className='form-label' 
+              style={{ color: '#8692A6' }}>
+              Password
+            </label>
+            <input type='password' 
+              className='form-control' 
+              id='password' 
+              name='password'
+              placeholder=' Create Password'
+              minLength='8' 
+              maxLength='20'
+              value={inputData.password} 
+              onChange={onChangeHandler} 
+              required
+            />
+            {/* <label 
+              for='convig_password'
+              className='form-label' 
+              style={{ color: '#8692A6' }}>
+              Configurasi Password
+            </label>
+            <input type='text' 
+              className='form-control' 
+              id='convig_password' 
+              name='password' 
+              pattern='[a-z0-9]{1,15}'
+              title = 'Password sholud be digits (0-9) or alphabets (a to z)'
+              placeholder= 'Convigurasi Password' 
+              value={inputData.password} 
+              onChange={onChangeHandler} 
+              required
+            /> */}
           </div>
-            <div className="form-check mt-3 text-center col-lg-6 offset-lg-3" style={{ color: '#8692A6' }}>
-            <input className="form-check-input" type="checkbox" id="defaultCheck1" />
-            <label className="form-check-label">
+            <div className='form-check mt-3 col-lg-6 offset-lg-3' 
+              style={{ color: '#8692A6' }}
+            >
+            <input className='form-check-input' 
+              type='checkbox' 
+              id='defaultCheck1' 
+              required
+            />
+            <label className='form-check-label'>
               I agree to terms & conditions
             </label>
           </div>
-          <button className='btn btn-warning col-lg-6 offset-lg-3 mt-5 text-white'>Register Account</button>
-          <p className='mt-3 text-center' style={{ color: '#8692A6' }}>Already have account? <Link href='/login' className='text-warning'>Log in Here</Link></p>
+          <button className='btn btn-warning col-lg-6 offset-lg-3 mt-5 text-white'>
+            Register Account
+          </button>
+          <p className='mt-3 text-center' 
+            style={{ color: '#8692A6' }}>
+            Already have account? 
+            <Link href='/login' 
+              className='text-warning'>
+              Log in Here
+            </Link>
+          </p>
         </form>
       </div>
     </div>
   )
 }
+

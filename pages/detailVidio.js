@@ -17,7 +17,9 @@ export default function DetailVidio() {
                         <div className='row '>
                             <div className='col-7'>
                                 <ReactPlayer url='https://www.youtube.com/watch?v=Mi72fOuiwA0' />
-                                <h4 className='mt-3'>Beef Steak with Curry Sauce - [Step 4] Cut the condiment and then mix it</h4>
+                                <h4 className='mt-3'>
+                                    Beef Steak with Curry Sauce - [Step 4] Cut the condiment and then mix it
+                                </h4>
                                 <p>3 Mont ago</p>
                             </div>
                             <div className='col-4 offset-1'>
