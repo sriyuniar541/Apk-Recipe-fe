@@ -11,8 +11,6 @@ import Link from 'next/link'
 export default function HomeLogin() {
   const [get, setGet] = useState([])
   const [search, setSearch] = useState('')
-  const [page, setPage] = useState(1)
-  let [limit, setLimit] = useState(6)
   const apiRecepi = `https://courageous-lime-jaguar.cyclic.app/recipe`
 
   useEffect(() => {
@@ -25,19 +23,7 @@ export default function HomeLogin() {
         console.log(err)
         alert('get data fail');
       })
-  }, [page])
-
-  const next = () => {
-    setPage(page + 1)
-  }
-
-  const prev = () => {
-    if (page === 0) {
-      setPage(page == 1)
-    } else {
-      setPage(page - 1)
-    }
-  }
+  }, [])
 
   //search/filter
   const filterRecipe = get.filter(recipe => {
@@ -55,7 +41,6 @@ export default function HomeLogin() {
       <Navbar />
       <div className='row '>
         <div className='col-9'>
-          {/* <Navbar /> */}
           <div className='container px-5'>
             <div className='d-flex justify-content-between'>
               <div className='col-5'
@@ -215,21 +200,6 @@ export default function HomeLogin() {
           })}
         </div>
         <div className='col-12 offset-5 mt-5 text-center'>
-          <ul className="pagination">
-            <button
-              className="page-item border-white"
-              onClick={prev}>
-              Back
-            </button>
-            <li className="page-item">
-              <a className="page-link" href="#">{page}</a>
-            </li>
-            <button
-              className="page-item border-white"
-              onClick={next}>
-              Next
-            </button>
-          </ul>
         </div>
       </div >
       <Footer />
