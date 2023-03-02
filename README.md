@@ -59,7 +59,7 @@ https://courageous-lime-jaguar.cyclic.app // or use your own
 
 | Login Page                                | Register Page                      | Verif Page                          |
 | ----------------------------------------- | -------------------------------------------- | -------------------------------------------- |
-| ![login](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1675087313/recipe/login-recipe_xbqjbb.png) | ![register](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1675087321/recipe/register-recipe_oordg9.png) | ![verif](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1675087311/recipe/otp-recipe_auvprc.png) |
+| ![login](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1677738611/login_baru_b5q7qt.png) | ![register](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1677738613/register_baru_wpbote.png) | ![verif](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1675087311/recipe/otp-recipe_auvprc.png) |
 
 | Landing Page                                               | New recipe                       | Populer Recipe                                            |
 | ---------------------------------------------------------- | -------------------------------------------- | ------------------------------------------------- |
