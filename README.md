@@ -59,23 +59,23 @@ https://courageous-lime-jaguar.cyclic.app // or use your own
 
 | Login Page                                | Register Page                      | Verif Page                          |
 | ----------------------------------------- | -------------------------------------------- | -------------------------------------------- |
-| ![login](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1675087313/recipe/login-recipe_xbqjbb.png) | ![register](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1675087321/recipe/register-recipe_oordg9.png) | ![verif](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1675087311/recipe/otp-recipe_auvprc.png) |
+| ![login](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1677738611/login_baru_b5q7qt.png) | ![register](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1677738613/register_baru_wpbote.png) | ![verif](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1675087311/recipe/otp-recipe_auvprc.png) |
 
 | Landing Page                                               | New recipe                       | Populer Recipe                                            |
 | ---------------------------------------------------------- | -------------------------------------------- | ------------------------------------------------- |
-| ![landing page](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1675087307/recipe/landingPageLodgin-recipe_wluxgr.png) | ![new recipe](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1675087308/recipe/newrecipe-recipe_fblulo.png) | ![populer recipe](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1675087319/recipe/populerrecipe-recipe_u4mqrk.png) |
+| ![landing page](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1677737095/home_baru_hlhxzl.png) | ![new recipe](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1675087308/recipe/newrecipe-recipe_fblulo.png) | ![populer recipe](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1675087319/recipe/populerrecipe-recipe_u4mqrk.png) |
 
 | Recipe List                                            | Detail Recipe                                          | Detail ingrediance and Vidio                                               |
 | --------------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------------- |
-| ![recipe list](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1675087300/recipe/daftarrecipeLengkap-recipe_nisqvc.png) | ![detail recipe](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1675087301/recipe/detailRecipe-recipe_vvzas3.png) | ![detail](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1675087294/recipe/detailrecipeAndIngrediance-recipe_r8hy1d.png) |
+| ![recipe list](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1677737100/search_baru_fhhnx2.png) | ![detail recipe](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1677738177/detail_baru_yee1ea.png) | ![detail](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1675087294/recipe/detailrecipeAndIngrediance-recipe_r8hy1d.png) |
 
 | comment                                           | Add Recipe                                         | Detail Vidio Recipe                                         |
 | ------------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------- |
-| ![comment](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1675087294/recipe/comment-recipe_hcexj8.png) | ![add recipe](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1675087294/recipe/addRecipe-recipe_dlw9no.png) | ![detail vidio](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1675087307/recipe/detailVidio-recipe_xpkp4l.png) |
+| ![comment](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1675087294/recipe/comment-recipe_hcexj8.png) | ![add recipe](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1677737091/addrecipe_baru_n6mv4e.png) | ![detail vidio](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1677738177/detailvidio_baru_jalnln.png) |
 
 | Profile and My Recipe                                  | Edit Profile                                    |                                      
 | ---------------------------------------------- | ------------------------------------------------- |
-| ![profile](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1675087304/recipe/myrecipe-recipe_otcixl.png) | ![edit profile](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1675087297/recipe/editProfile-recipe_jrergs.png) |
+| ![profile](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1677737095/profile_baru_ff0x8o.png) | ![edit profile](https://res.cloudinary.com/dxrsjyu6o/image/upload/v1677738176/editprofile_baru_wget9s.png) |
 
 
 ## Related Project
