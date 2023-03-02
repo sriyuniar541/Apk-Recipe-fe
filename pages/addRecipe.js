@@ -70,7 +70,7 @@ export default function AddRecepi() {
   return (
     <div>
       <Navbar />
-      <form className='container' onSubmit={handlePost}>
+      <form className='container mt-5' onSubmit={handlePost}>
         <div className='col-10 offset-1'>
           <input
             type='file'

@@ -1,9 +1,13 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import Footer from '../../componen/Footer'
 import Navbar from '../../componen/Navbar'
+import { AiOutlineLike } from 'react-icons/ai'
+import { BsBookmarks } from 'react-icons/bs'
+
 
 
 export default function DetailRecipe() {
@@ -136,89 +140,78 @@ export default function DetailRecipe() {
       <div>
         <Navbar />
         <div className='container'>
-          <><div className='text-center'>
+          <div className='text-center'>
             <h1
               className='mb-4'
               style={{ color: '#2E266F' }}>
-              Loream Sandwich
               {data ? data.title : 'data not found'}
             </h1>
-            <img
-              src={data ? data.photo : 'data not found'}
-              alt=''
-              style={{
-                width: '600px',
-                height: '450px'
-              }}
-              className='img-fluid'
-            />
           </div>
-            <div className='d-flex justify-content-center mt-2'>
-              <button
-                onClick={saveRecipe}
-                className='btn btn-white border-warning me-2'>
-                <img
-                  src='/spg.png'
-                  alt=''
-                  style={{ width: '30px', height: '30px' }} />
-              </button>
-              <button
-                onClick={likerecipe}
-                className='btn btn-white border-warning'>
-                <img
-                  src='/like.png'
-                  alt=''
-                  style={{ width: '30px', height: '30px' }} />
-              </button>
-            </div>
-            <div className='col-11 offset-1 mt-5'>
-              <h4>Ingredients </h4><ul>
-                <li>{data ? data.ingredients : 'data not found'}</li>
-                <li>2 tbsp mayonnaise</li>
-                <li>3 slices bread</li>
-                <li>a little butter</li>
-                <li>⅓ carton of cress</li>
-                <li>2-3 slices of tomato or a lettuce leaf and a slice of ham or cheese</li>
-                <li>crisps , to serve</li>
-              </ul>
-              <Link
-                href={`/vidio/${data.id}`}>
-                <h4 className='mt-5'>Vidio Step</h4>
-                <img
-                  src='/vd.png'
-                  alt=''
-                  style={{ width: '20%' }}
-                  className='mb-3' />
-                <br />
-                <img
-                  src='/vd.png'
-                  alt=''
-                  style={{ width: '20%' }}
-                  className='mb-3' />
-                <br />
-                <img
-                  src='/vd.png'
-                  alt=''
-                  style={{ width: '20%' }}
-                  className='mb-3' />
-              </Link>
-              <div className='col-12 text-center'>
-                <textarea
-                  className="form-control mb-3 border-white"
-                  id="exampleFormControlTextarea1"
-                  rows="10"
-                  placeholder='Comment :'
-                  style={{ backgroundColor: '#F6F5F4' }}
-                  name='comment'
-                  value={comment}
-                  onChange={((e) => { setComment(e.target.value) })} />
+          <div className='card border-white col-lg-6 offset-lg-3'>
+            <img src={data ? data.photo : 'data not found'} className='card-img' alt='recipe' style={{ width: '100%', height: '450px' }} />
+            <div className='card-img-overlay d-flex align-items-end justify-content-end opacity-50'>
+              <div className='butoon'>
                 <button
-                  className='btn btn-warning text-white col-3'
-                  onClick={postComment}>
-                  Post
+                  onClick={saveRecipe}
+                  className='btn btn-light me-2'>
+                  <BsBookmarks size={20} />
+                </button>
+                <button
+                  onClick={likerecipe}
+                  className='btn btn-light'>
+                  <AiOutlineLike size={20} />
                 </button>
               </div>
-            </div></>
+            </div>
+          </div>
+          <div className='col-11 offset-1 mt-5'>
+            <h4>Ingredients </h4><ul>
+              <li>{data ? data.ingredients : 'data not found'}</li>
+              <li>2 tbsp mayonnaise</li>
+              <li>3 slices bread</li>
+              <li>a little butter</li>
+              <li>⅓ carton of cress</li>
+              <li>2-3 slices of tomato or a lettuce leaf and a slice of ham or cheese</li>
+              <li>crisps , to serve</li>
+            </ul>
+            <Link
+              href={`/vidio/${data.id}`}>
+              <h4 className='mt-5'>Vidio Step</h4>
+              <img
+                src='/vd.png'
+                alt=''
+                style={{ width: '20%' }}
+                className='mb-3' />
+              <br />
+              <img
+                src='/vd.png'
+                alt=''
+                style={{ width: '20%' }}
+                className='mb-3' />
+              <br />
+              <img
+                src='/vd.png'
+                alt=''
+                style={{ width: '20%' }}
+                className='mb-3' />
+            </Link>
+            <div className='col-12 text-center'>
+              <textarea
+                className='form-control mb-3 border-white'
+                id='exampleFormControlTextarea1'
+                rows='10'
+                placeholder='Comment :'
+                style={{ backgroundColor: '#F6F5F4' }}
+                name='comment'
+                value={comment}
+                onChange={((e) => { setComment(e.target.value) })} />
+              <button
+                className='btn btn-warning text-white col-3'
+                onClick={postComment}>
+                Post
+              </button>
+            </div>
+          </div>
           <div className='container col-12 offset-1'>
             <div style={{ marginBottom: '20%', marginTop: '5%' }}>
               <h4 className='mb-5'>Comment</h4>

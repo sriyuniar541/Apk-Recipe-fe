@@ -2,11 +2,11 @@ import React from 'react'
 import Link from 'next/link'
 import FotterP from '../componen/fotterP'
 import Navbar from '../componen/Navbar'
-import CardProfile from '../componen/cardProfile'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import axios from 'axios'
-import Image from 'next/image'
+import { GrView } from "react-icons/gr"
+import { RiDeleteBin5Line } from "react-icons/ri";
 
 export default function Profile() {
   let token = ''
@@ -135,23 +135,27 @@ export default function Profile() {
               {recipe.map((p) => (
                 <>
                   <div className='col-6 col-lg-2 mx-lg-3 mb-3' key={p.id}>
-                    <img
-                      src={p.photo}
-                      alt='insert gambar'
-                      width={200}
-                      height={200}
-                      className='image-fluid'
-                    />
-                    <button
-                      className='btn btn-danger me-3'
-                      onClick={() => handleDelete(p.id)}>
-                      Delete
-                    </button>
-                    <Link href={`/recipe/${p.id}`}>
-                      <button className='btn btn-warning text-white'>
-                        View
-                      </button>
-                    </Link>
+                    <div className='card border-white'>
+                      <img 
+                        src={p ? p.photo : 'data not found'} 
+                        className='card-img' 
+                        alt='recipe' 
+                        style={{ width: '200px', height: '200px' }} />
+                      <div className='card-img-overlay d-flex align-items-end justify-content-end'>
+                        <div className='butoon opacity-75'>
+                          <button
+                            className='btn btn-light me-2 px-3'
+                            onClick={() => handleDelete(p.id)}>
+                            <RiDeleteBin5Line />
+                          </button>
+                          <Link href={`/recipe/${p.id}`}>
+                            <button className='btn btn-light text-white'>
+                              <GrView />
+                            </button>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </>
               ))}

@@ -7,7 +7,6 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 
 
-
 export default function HomeLogin() {
   const [get, setGet] = useState([])
   const [search, setSearch] = useState('')
@@ -63,8 +62,8 @@ export default function HomeLogin() {
                     onChange={e => setSearch(e.target.value)}>
                   </input>
                   <Link href='/search'>
-                    <button className='btn btn-white'>
-                      view
+                    <button className='btn btn-white text-primary'>
+                      View
                     </button>
                   </Link>
                 </div>
@@ -99,7 +98,10 @@ export default function HomeLogin() {
       <div className='container d-flex'>
         <img src='/k2.png' alt='' />
         <h3
-          style={{ paddingTop: '5%', paddingBottom: '5%' }}>
+          style={{
+            paddingTop: '5%',
+            paddingBottom: '5%'
+          }}>
           Popular For You !
         </h3>
       </div>
@@ -128,7 +130,10 @@ export default function HomeLogin() {
       <div className='container mt-5 mb-5 d-flex'>
         <img src='/k2.png' alt='' />
         <h3
-          style={{ paddingTop: '5%', paddingBottom: '5%' }}>
+          style={{
+            paddingTop: '5%',
+            paddingBottom: '5%'
+          }}>
           New Recipe
         </h3>
       </div>
@@ -177,7 +182,10 @@ export default function HomeLogin() {
       <div className='container d-flex mb-5 mt-5'>
         <img src='/k2.png' alt='' />
         <h3
-          style={{ paddingTop: '5%', paddingBottom: '5%' }}>
+          style={{
+            paddingTop: '5%',
+            paddingBottom: '5%'
+          }}>
           Popular Recepi
         </h3>
       </div>

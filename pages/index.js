@@ -6,6 +6,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Router, { useRouter } from 'next/router'
+import { BsBoxArrowInRight, BsSearch } from "react-icons/bs";
 
 
 
@@ -45,8 +46,9 @@ export default function Home() {
           <div className='container px-5 '>
             <Link href='/login'>
               <button className='btn btn-danger'>
-                Login
+                Login <BsBoxArrowInRight/>
               </button>
+              
             </Link>
             <div className='d-flex justify-content-between '>
               <div className='col-5'
@@ -64,8 +66,9 @@ export default function Home() {
                     style={{ height: 'auto' }}
                     value={search}
                     onChange={e => setSearch(e.target.value)}
-                  >
+                  > 
                   </input>
+                  
                   <Link href='/login'>
                     <button className='btn btn-white'>view</button>
                   </Link>

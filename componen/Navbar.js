@@ -36,14 +36,11 @@ export default function Navbar() {
 
 
 
-
   return (
-    <div className=' container-fluid' 
-      style={{ backgroundColor: '#FFF5EC' }}
-    >
+    <div className=' container-fluid shadow-sm'>
       <div className='container-fluid'>
-        <div className='row py-3'>
-          <div className='col-lg-6 col-8 py-2 px-lg-4'>
+        <div className='row py-lg-3'>
+          <div className='col-lg-5 col-7 py-2 px-lg-4 ms-lg-4'>
             <Link href='/Home' className='text-primary'>
               <b>Home</b>
             </Link>
@@ -51,20 +48,21 @@ export default function Navbar() {
               <b>Add Recepi</b>
             </Link>
             <Link href='/profile' className='px-3 text-primary'>
-              <b>Profile</b> 
+              <b>Profile</b>
             </Link>
           </div>
           <div className='col-lg-3 col-4  d-flex justify-content-end offset-lg-3'>
             <Link href='/profile'>
-              <img src={data ? data.photo : 'data not found'}
+              <img 
+                src={data ? data.photo : 'data not found'}
                 alt='' width={40}
                 height={40}
                 style={{ borderRadius: '50%' }}
                 className='mt-lg-1 mt-1' />
             </Link>
-            <p className='px-2 text-primary mt-2'>
+            <button className='btn btn-white text-primary mb-lg-3 mb-5'>
               <b>{data ? data.name : 'data not found'}</b>
-            </p>
+            </button>
             <button
               className=' btn btn-white text-primary mb-lg-3 mb-5'
               onClick={logout}>
