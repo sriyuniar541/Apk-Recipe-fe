@@ -101,12 +101,12 @@ export default function HomeLogin() {
           Popular For You !
         </h3>
       </div>
-      <div className="container-fluid mt-5 mb-5">
+      <div className="container-fluid mx-5">
         <div className="row">
           {sortByIdDesc.map((p, i) => {
             if (i < 2) {
               return (
-                <div className="col-lg-3 col-5 mt-5 " key={p.id}>
+                <div className="col-lg-3 col-6 mt-5 " key={p.id}>
                   <Link href={`/recipe/${p.id}`}>
                     <img
                       src={p.photo}
