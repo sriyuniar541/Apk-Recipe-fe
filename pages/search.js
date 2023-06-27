@@ -49,7 +49,7 @@ export default function Home() {
             {sortByIdDesc.map((p, i) => {
               return (
                 // eslint-disable-next-line react/jsx-key
-                <div className='card col-lg-3 my-5 text-center  border mx-2 py-3 shadow-sm' 
+                <div className='card col-lg-3 my-5 text-center  border mx-2 py-3 shadow-sm ' 
                     style={{ 
                       height: '395px', 
                       width: '260px', 

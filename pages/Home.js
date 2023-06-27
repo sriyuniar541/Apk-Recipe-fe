@@ -36,12 +36,12 @@ export default function HomeLogin() {
   return (
     <div className={styles.container_fluid}>
       <Navbar />
-      <div className="row ">
-        <div className="col-9">
-          <div className="container px-5">
+      <div className="row">
+        <div className="col-lg-9">
+          <div className="container px-5 ">
             <div className="d-flex justify-content-between">
               <div
-                className="col-5"
+                className="col-lg-5"
                 style={{
                   paddingTop: "20%",
                   paddingBottom: "20%",
@@ -63,7 +63,7 @@ export default function HomeLogin() {
                   </Link>
                 </div>
               </div>
-              <div className="col-7">
+              <div className="col-7 d-lg-flex d-none">
                 <img
                   src="/g2.png"
                   alt=""
@@ -78,7 +78,7 @@ export default function HomeLogin() {
             </div>
           </div>
         </div>
-        <div className="col-3 ">
+        <div className="col-lg-3 d-lg-flex  d-none">
           <img
             src="/k1.png"
             alt=""
@@ -90,6 +90,7 @@ export default function HomeLogin() {
           />
         </div>
       </div>
+      <div className="my-5">
       <div className="container d-flex">
         <img src="/k2.png" alt="" />
         <h3
@@ -125,6 +126,7 @@ export default function HomeLogin() {
           })}
         </div>
       </div>
+</div>
       <div className="container mt-5 mb-5 d-flex">
         <img src="/k2.png" alt="" />
         <h3
