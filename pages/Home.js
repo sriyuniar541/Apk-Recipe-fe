@@ -112,7 +112,7 @@ export default function HomeLogin() {
                     <img
                       src={p.photo}
                       alt="My Photo"
-                      className="border col-12"
+                      className="border col-12 image-fluid"
                       style={{
                         // width: "100%",
                         height: "300px",
@@ -147,7 +147,7 @@ export default function HomeLogin() {
                   <img
                     src={p.photo}
                     alt=""
-                    className="border"
+                    className="border image-fluid"
                     style={{
                       width: "25%",
                       zIndex: 3,
@@ -201,7 +201,7 @@ export default function HomeLogin() {
                   <Link href={`/recipe/${p.id}`}>
                     <img
                       src={p.photo}
-                      className="border col-12"
+                      className="border col-12 image-fluid"
                       alt=""
                       style={{ height: "300px", borderRadius: "15px" }}
                     />

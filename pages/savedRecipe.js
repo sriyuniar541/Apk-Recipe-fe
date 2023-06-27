@@ -133,13 +133,13 @@ export default function SavedRecipe() {
         <div className='row d-flex justify-content-start '>
           {like.map((p) => (
             <>
-              <div className='col-6 col-lg-2 mx-lg-3 mb-3'>
+              <div className='col-6 col-lg-2 mx-lg-3 mb-3 border'>
                 <div className='card border-white'>
                   <img
                     src={p ? p.recipe_photo : 'data not found'}
-                    className='card-img'
+                    className='card-img image-fluid'
                     alt='recipe'
-                    style={{ width: '200px', height: '200px' }} />
+                    style={{ height: '150px' }} />
                   <div className='card-img-overlay d-flex align-items-end justify-content-end '>
                     <div className='butoon opacity-75'>
                       <button
