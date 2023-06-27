@@ -134,13 +134,14 @@ export default function Profile() {
             <div className='row d-flex justify-content-start '>
               {recipe.map((p) => (
                 <>
-                  <div className='col-6 col-lg-2 mx-lg-3 mb-3' key={p.id}>
-                    <div className='card border-white'>
+                  <div className='col-6 col-lg-2 mx-lg-3 mb-3 border' key={p.id}>
+                    <div className='card'>
                       <img 
                         src={p ? p.photo : 'data not found'} 
-                        className='card-img' 
+                        className='card-img image-fluid' 
                         alt='recipe' 
-                        style={{ width: '200px', height: '200px' }} />
+                        style={{ height: '150px' }} 
+                        />
                       <div className='card-img-overlay d-flex align-items-end justify-content-end'>
                         <div className='butoon opacity-75'>
                           <button

@@ -37,7 +37,7 @@ export default function Navbar() {
 
 
   return (
-    <div className=' container-fluid shadow-sm'>
+    <div className=' container-fluid shadow-sm '>
       <div className='container-fluid'>
         <div className='row py-lg-3'>
           <div className='col-lg-5 col-7 py-2 px-lg-4 ms-lg-4'>
