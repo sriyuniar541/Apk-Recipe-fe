@@ -101,7 +101,7 @@ export default function HomeLogin() {
           Popular For You !
         </h3>
       </div>
-      <div className="container-fluid mx-5">
+      <div className="container-fluid">
         <div className="row">
           {sortByIdDesc.map((p, i) => {
             if (i < 2) {
@@ -111,9 +111,9 @@ export default function HomeLogin() {
                     <img
                       src={p.photo}
                       alt="My Photo"
-                      className="border"
+                      className="border col-12"
                       style={{
-                        width: "100%",
+                        // width: "100%",
                         height: "300px",
                         borderRadius: "10px",
                       }}
@@ -201,7 +201,7 @@ export default function HomeLogin() {
                       src={p.photo}
                       className="border col-12"
                       alt=""
-                      style={{ height: "250px", borderRadius: "15px" }}
+                      style={{ height: "300px", borderRadius: "15px" }}
                     />
                   </Link>
                 </div>
